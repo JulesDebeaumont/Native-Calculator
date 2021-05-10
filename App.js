@@ -1,21 +1,29 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
+import Calculatrice from './components/Calculatrice';
+import Title from './components/Title';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <View style={styles.bar}>
+        <StatusBar style="light" />
+        <Title title="Ma Calculatrice" />
+      </View>
+      <View >
+        <Calculatrice />
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
+    color: '#FFFFFF',
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
   },
+  bar: {
+    backgroundColor: '#707070',
+  }
 });

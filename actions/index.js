@@ -14,3 +14,40 @@ export function addSymbol(key) {
     key,
   };
 }
+
+export function deleteSymbol() {
+  return {
+    type: actions.DELETE_SYMBOL,
+  };
+}
+
+export function deleteAll() {
+  return {
+    type: actions.DELETE_ALL,
+  };
+}
+
+export function compute() {
+  return {
+    type: actions.COMPUTE,
+  };
+}
+
+export function memoryClear() {
+  return {
+    type: actions.MEMORY_CLEAR,
+  };
+}
+
+export function memoryStore(key) {
+  return {
+    type: actions.MEMORY_STORE,
+    key,
+  };
+}
+
+export function memoryReset() {
+  return {
+    type: actions.MEMORY_RESET,
+  };
+}

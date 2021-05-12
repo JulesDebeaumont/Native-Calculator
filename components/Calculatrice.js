@@ -1,22 +1,28 @@
 import { StyleSheet, View } from 'react-native';
-import React from 'react';
+import React, { useReducer } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { Expression } from './Expression';
 import { Keyboard } from './Keyboard';
 import { Memory } from './Memory';
 import { Title } from './Title';
+import reducer, { defaultState } from '../reducer/index';
+import { MyContext } from '../context/index';
 
 export function Calculatrice() {
+  const [state, dispatch] = useReducer(reducer, defaultState);
+
   return (
-    <View>
-      <View style={styles.bar}>
-        <StatusBar style="light" />
-        <Title title="Ma Calculatrice" />
+    <MyContext.Provider value={(state, dispatch)}>
+      <View>
+        <View style={styles.bar}>
+          <StatusBar style="light" />
+          <Title title="Ma Calculatrice" />
+        </View>
+        <Expression expr="expression" />
+        <Memory />
+        <Keyboard />
       </View>
-      <Expression expr="expression" />
-      <Memory />
-      <Keyboard />
-    </View>
+    </MyContext.Provider>
   );
 }
 

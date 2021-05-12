@@ -1,14 +1,14 @@
 import { StyleSheet, View, Text } from 'react-native';
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useContext } from 'react';
+import { MyContext } from '../context/index';
 
-export function Expression(props) {
+export function Expression() {
   // eslint-disable-next-line react/prop-types
-  const { expr } = props;
+  const { state } = useContext(MyContext);
 
   return (
     <View style={styles.expressionView}>
-      <Text style={styles.expressionText}>expr: {expr} </Text>
+      <Text style={styles.expressionText}>expr: {state.expression} </Text>
     </View>
   );
 }
@@ -24,9 +24,5 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
 });
-
-Expression.defaultProps = {
-  expr: PropTypes.string,
-};
 
 export default Expression;

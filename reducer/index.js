@@ -18,16 +18,16 @@ export default function reducer(state = defaultState, action) {
       return { ...state, expression: defaultState.expression };
 
     case actions.COMPUTE:
-      return { ...state, memory: evaluateur(state.expression) };
+      return { ...state, expression: evaluateur(state.expression) };
 
     case actions.MEMORY_STORE:
-      return { ...state, memory: action.key };
+      return { ...state, memory: state.expression };
 
     case actions.MEMORY_CLEAR:
-      return { ...state, memory: 0 };
+      return { ...state, memory: null };
 
-    case actions.MEMORY_RESET:
-      return { ...state, memory: defaultState.memory };
+    case actions.MEMORY_RESTORE:
+      return { ...state, expression: state.expression + state.memory };
     default:
       return state;
   }

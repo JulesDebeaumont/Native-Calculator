@@ -5,7 +5,7 @@ export const actions = {
   COMPUTE: 'COMPUTE',
   MEMORY_STORE: 'MEMORY_STORE',
   MEMORY_CLEAR: 'MEMORY_CLEAR',
-  MEMORY_RESET: 'MEMORY_RESET',
+  MEMORY_RESTORE: 'MEMORY_RESTORE',
 };
 
 export function addSymbol(key) {
@@ -39,15 +39,14 @@ export function memoryClear() {
   };
 }
 
-export function memoryStore(key) {
+export function memoryStore() {
   return {
     type: actions.MEMORY_STORE,
-    key,
   };
 }
 
-export function memoryReset() {
+export function memoryRestore() {
   return {
-    type: actions.MEMORY_RESET,
+    type: actions.MEMORY_RESTORE,
   };
 }

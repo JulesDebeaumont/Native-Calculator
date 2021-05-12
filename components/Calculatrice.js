@@ -12,13 +12,13 @@ export function Calculatrice() {
   const [state, dispatch] = useReducer(reducer, defaultState);
 
   return (
-    <MyContext.Provider value={(state, dispatch)}>
+    <MyContext.Provider value={{ state, dispatch }}>
       <View>
         <View style={styles.bar}>
           <StatusBar style="light" />
           <Title title="Ma Calculatrice" />
         </View>
-        <Expression expr="expression" />
+        <Expression />
         <Memory />
         <Keyboard />
       </View>

@@ -5,7 +5,7 @@ import { MyContext } from '../context/index';
 import { addSymbol, compute, deleteAll, deleteSymbol } from '../actions';
 
 export function Keyboard() {
-  const { dispatch } = useContext(MyContext);
+  const { state, dispatch } = useContext(MyContext);
 
   return (
     <View style={styles.keyboard}>
@@ -20,7 +20,7 @@ export function Keyboard() {
         <Key texte="2" action={() => dispatch(addSymbol(2))} />
         <Key texte="3" action={() => dispatch(addSymbol(3))} />
         <Key texte="0" action={() => dispatch(addSymbol(0))} />
-        <Key texte="AC" action={() => dispatch(deleteSymbol())} />
+        <Key texte="AC" action={() => dispatch(deleteSymbol())} disabled={state.expression.length > 0} />
         <Key texte="C" action={() => dispatch(deleteAll())} />
       </View>
 

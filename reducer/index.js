@@ -12,7 +12,7 @@ export default function reducer(state = defaultState, action) {
       return { ...state, expression: state.expression + action.key };
 
     case actions.DELETE_SYMBOL:
-      return { ...state, expression: state.expression.substring(0, state.expression - 1) };
+      return { ...state, expression: state.expression.slice(0, -1) };
 
     case actions.DELETE_ALL:
       return { ...state, expression: defaultState.expression };

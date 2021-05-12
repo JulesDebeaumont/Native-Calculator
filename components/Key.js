@@ -8,7 +8,7 @@ export function Key(props) {
 
   return (
     <TouchableOpacity style={styles.item} disabled={disabled === false} onPress={action}>
-      <Text style={styles.text}>{texte}</Text>
+      <Text style={[styles.text, disabled === false ? null : styles.enabled]}>{texte}</Text>
     </TouchableOpacity>
   );
 }
@@ -26,6 +26,12 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 23,
   },
+  disabled: {
+    color: '#F0F0F0',
+  },
+  enabled: {
+    color: '#101010',
+  }
 });
 
 Key.defaultProps = {

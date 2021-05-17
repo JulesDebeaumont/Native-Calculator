@@ -1,10 +1,16 @@
-import { actions } from '../actions';
+import { actions } from '../actions/index';
 import { evaluateur } from './evaluateur';
 
 export const defaultState = {
   expression: '',
   memory: null,
+  color: '#e39612',
 };
+
+function shuffleColor() {
+  // eslint-disable-next-line no-bitwise
+  return `rgb(${Math.random() * 256},${Math.random() * 256},${Math.random() * 256})`;
+}
 
 export default function reducer(state = defaultState, action) {
   switch (action.type) {
@@ -28,6 +34,10 @@ export default function reducer(state = defaultState, action) {
 
     case actions.MEMORY_RESTORE:
       return { ...state, expression: state.expression + state.memory };
+
+    case actions.SHUFFLE_COLOR:
+      return { ...state, color: shuffleColor() };
+
     default:
       return state;
   }

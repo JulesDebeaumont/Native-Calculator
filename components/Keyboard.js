@@ -2,7 +2,7 @@ import { StyleSheet, View } from 'react-native';
 import React, { useContext } from 'react';
 import { Key } from './Key';
 import { MyContext } from '../context/index';
-import { addSymbol, compute, deleteAll, deleteSymbol } from '../actions';
+import { addSymbol, compute, deleteAll, deleteSymbol } from '../actions/index';
 
 export function Keyboard() {
   const { state, dispatch } = useContext(MyContext);

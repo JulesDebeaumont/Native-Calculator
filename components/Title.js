@@ -1,21 +1,28 @@
-import { StyleSheet, View, Text } from 'react-native';
-import React from 'react';
+import { StyleSheet, TouchableOpacity, Text } from 'react-native';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
+import { MyContext } from '../context/index';
+import { shuffleColors } from '../actions';
 
 export function Title(props) {
   // eslint-disable-next-line react/prop-types
   const { title } = props;
+  const { state, dispatch } = useContext(MyContext);
+  const bgStyle = StyleSheet.create({
+    bg: {
+      backgroundColor: state.color,
+    },
+  });
 
   return (
-    <View style={styles.firstView}>
+    <TouchableOpacity style={[styles.firstView, bgStyle.bg]} onPress={() => dispatch(shuffleColors())}>
       <Text style={styles.titleText}>{title}</Text>
-    </View>
+    </TouchableOpacity>
   );
 }
 
 const styles = StyleSheet.create({
   firstView: {
-    backgroundColor: '#e39612',
     width: '100%',
     padding: 15,
     marginTop: 25,

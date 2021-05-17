@@ -6,6 +6,7 @@ export const actions = {
   MEMORY_STORE: 'MEMORY_STORE',
   MEMORY_CLEAR: 'MEMORY_CLEAR',
   MEMORY_RESTORE: 'MEMORY_RESTORE',
+  SHUFFLE_COLOR: 'SHUFFLE_COLOR',
 };
 
 export function addSymbol(key) {
@@ -48,5 +49,11 @@ export function memoryStore() {
 export function memoryRestore() {
   return {
     type: actions.MEMORY_RESTORE,
+  };
+}
+
+export function shuffleColors() {
+  return {
+    type: actions.SHUFFLE_COLOR,
   };
 }
